@@ -1,0 +1,29 @@
+<div class="layout-container">
+
+  <header role="banner">
+    {% block header %}
+    {% endblock %}
+  </header>
+
+  {% block highlighted %}
+  {% endblock %}
+
+  {% block breadcrumb %}
+  {% endblock %}
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    <div class="layout-content">
+      {% block content %}
+      {% endblock %}
+    </div>{# /.layout-content #}
+  </main>
+
+  {% if page.footer %}
+    <footer role="contentinfo">
+      {% block footer %}
+      {% endblock %}
+    </footer>
+  {% endif %}
+
+</div>{# /.layout-container #}

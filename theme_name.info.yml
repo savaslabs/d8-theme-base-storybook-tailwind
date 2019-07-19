@@ -1,0 +1,22 @@
+# @todo: Customize theme name.
+name: theme_name
+type: theme
+description: Theme Name
+package: Core
+core: 8.x
+base theme: stable
+
+regions:
+  header: Header
+  highlighted: Highlighted
+  breadcrumb: Breadcrumb
+  content: Content
+  footer: Footer
+
+component-libraries:
+  storybook:
+    paths:
+      - ./storybook/components
+
+libraries:
+  - theme_name/global-styling

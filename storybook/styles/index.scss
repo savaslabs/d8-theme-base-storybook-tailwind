@@ -1,0 +1,20 @@
+// Normalize reset.
+@import-normalize;
+
+// Tailwind.
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+// Global styles.
+@import 'typography';
+
+// Atoms.
+@import './../components/atoms/headings/headings';
+
+// Molecules.
+@import './../components/molecules/menu/menu';
+
+// Organisms.
+@import './../components/organisms/layout/header/header';
+@import './../components/organisms/layout/footer/footer';

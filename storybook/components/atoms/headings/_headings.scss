@@ -1,0 +1,31 @@
+h1,
+h2,
+h3,
+h4 {
+  @apply font-serif;
+}
+
+h1 {
+  @apply text-56;
+}
+
+h2 {
+  @apply text-36;
+}
+
+h3 {
+  @apply text-24;
+}
+
+h4 {
+  @apply text-18;
+}
+
+h5,
+h6 {
+  @apply text-14
+    font-bold
+    leading-normal
+    tracking-wider
+    uppercase;
+}

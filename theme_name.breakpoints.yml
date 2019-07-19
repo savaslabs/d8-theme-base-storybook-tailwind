@@ -1,0 +1,22 @@
+# @todo: Update theme name and enter custom breakpoints.
+theme_name.mobile:
+  label: mobile
+  mediaQuery: ""
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+theme_name.narrow:
+  label: narrow
+  mediaQuery: "all and (min-width: 461px) and (max-width: 768px)"
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+theme_name.wide:
+  label: wide
+  mediaQuery: "all and (min-width: 769px)"
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
