@@ -25,7 +25,7 @@ module.exports = ({ config }) => {
         options: {
           twigOptions: {
             namespaces: {
-              storybook: path.resolve(__dirname, '../', 'twig'),
+              storybook: path.resolve(__dirname, '../', 'components'),
             },
           },
         },
