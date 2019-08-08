@@ -5,7 +5,7 @@ import '@webcomponents/webcomponentsjs/webcomponents-bundle';
 import '../styles/index.scss';
 
 // @ts-ignore
-const components = require.context('../components', true, /\/index\.(ts|js)$/);
+const components = require.context('../components', true, /\/[^.]+.(ts|js)$/);
 
 // @ts-ignore
 components.keys().forEach(filename => components(filename));

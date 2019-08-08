@@ -1,7 +1,7 @@
 global-styling:
   version: VERSION
   js:
-    build/index.js: { preprocess: true }
+    build/scripts.js: { preprocess: true }
   css:
     component:
       build/index.css: { preprocess: true }
