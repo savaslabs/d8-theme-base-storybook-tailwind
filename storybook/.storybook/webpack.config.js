@@ -12,7 +12,7 @@ module.exports = ({ config }) => {
 
   // Reuse common webpack configuration.
   config.module.rules.push(common.javascript);
-  config.module.rules.push(common.assets);
+  // config.module.rules.push(common.assets);
 
   config.module.rules.push(filteredCommon);
 
@@ -32,9 +32,6 @@ module.exports = ({ config }) => {
       },
     ],
   });
-
-  // Support importing typescript files without extension.
-  config.resolve.extensions.push('.ts');
 
   return config;
 };

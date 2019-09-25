@@ -1,5 +1,4 @@
 {
-  "extends": ["stylelint-config-amazee"],
   "rules": {
     "declaration-property-value-blacklist": null,
     "function-url-quotes": null,
@@ -29,5 +28,9 @@
         ]
       }
     ]
-  }
+  },
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier"
+  ]
 }

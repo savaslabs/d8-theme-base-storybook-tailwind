@@ -5,6 +5,8 @@ import '../../../../styles/index.scss';
 import Footer from './footer.twig';
 import { menu } from '../../../molecules/menu/menu.data';
 
-storiesOf('Organisms/Footer', module).add('Footer', () => Footer({
-  footerNav: menu,
-}));
+storiesOf('Organisms/Footer', module).add('Footer', () =>
+  Footer({
+    footerNav: menu,
+  })
+);
