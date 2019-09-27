@@ -3,6 +3,7 @@
 */
 
 export const onMouseover = e => {
+  // eslint-disable-next-line
   console.log(e.currentTarget);
 };
 
@@ -19,9 +20,6 @@ export const Button = () => {
   Function will be called separately in SB story.
 */
 
-if (
-  document.querySelectorAll('.button') !== null &&
-  document.querySelectorAll('#storybook-preview-wrapper') == null
-) {
+if (document.querySelectorAll('.button').length > 0) {
   Button();
 }
