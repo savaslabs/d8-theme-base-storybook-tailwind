@@ -21,32 +21,29 @@ View the full documentation at https://tailwindcss.com.
 | Customoizing colors           https://tailwindcss.com/docs/customizing-colors
 |-------------------------------------------------------------------------------
 |
-| Here you can specify the colors used in your project. To get you started,
-| we've provided a generous palette of great looking colors that are perfect
-| for prototyping, but don't hesitate to change them for your project. You
-| own these colors, nothing will break if you change everything about them.
-|
-| We've used literal color names ("red", "blue", etc.) for the default
-| palette, but if you'd rather use functional names like "primary" and
-| "secondary", or even a numeric scale like "100" and "200", go for it.
-|
-| By default these colors are automatically shared by the textColor,
-| borderColor, and backgroundColor utilities, so this configuration
+| Here you can specify the colors used in your project. By default these
+| colors are automatically shared by the textColor, borderColor,
+| and backgroundColor utilities, so this configuration
 | would generate classes like .text-navy, .border-gray, and .bg-navy.
+|
+| You can declare a color outright (e.g. black: '#000'), or
+| you can declare multiple shade of a color
+    gray: {
+      default: '#e0e0e0',
+      light: '#f7f7f7',
+    }
+| In this case "default" is what will show if you just use the class
+| "text-gray". You don't need to put "text-gray-default".
 |
 */
 
+// @todo Update these colors based on your project.
 const colors = {
   black: '#000',
-  bronze: {
-    default: '#b76a11',
-    btnHover: '#985d17', // + 20% slate
-    btnDisable: '#ead3b8', // +70% white
-  },
-  dukeBlue: {
+  blue: {
     default: '#075195',
-    dark: '#0b4981', // + 20% slate
-    light: '#b5cbdf', // +70% white
+    dark: '#0b4981',
+    light: '#b5cbdf',
   },
   graphite: '#425865',
   gray: {
@@ -55,39 +52,88 @@ const colors = {
   },
   navy: {
     default: '#003266',
-    dark: '#06305b', // + 20% slate
-    light: '#b3c2d1', // +70% white
-  },
-  teal: {
-    default: '#329999',
-    dark: '#2e8384', // + 20% slate
-    light: '#c2e1e1', // +70% white
-  },
-  darkTeal: {
-    default: '#268080',
-    dark: '#246f70', // + 20% slate
-    light: '#bed9d9', // +70% white
+    dark: '#06305b',
+    light: '#b3c2d1',
   },
   slate: '#1c2931',
+  transparent: 'transparent',
   white: '#fff',
 };
 
+/*
+|-------------------------------------------------------------------------------
+| Customoizing spacing         https://tailwindcss.com/docs/customizing-spacing/
+|-------------------------------------------------------------------------------
+|
+| The spacing scale is shared by the padding, margin, width/max-width, and
+| height/max-height utlities. This should cover most use cases, but you can add
+| values to this list at any time to gain more functionality.
+|
+*/
+
 const spacing = {
-  px: '1px',
   0: '0',
+  1: '0.0625rem',
   5: '0.3125rem',
   10: '0.625rem',
   15: '0.9375rem',
   20: '1.25rem',
   25: '1.5625rem',
   30: '1.875rem',
+  35: '2.1875rem',
   40: '2.5rem',
+  45: '2.813rem',
   50: '3.125rem',
+  55: '3.4375rem',
   60: '3.75rem',
+  70: '4.375rem',
+  75: '4.6875rem',
   80: '5rem',
+  85: '5.3125rem',
+  90: '5.625rem',
+  95: '5.9375rem',
   100: '6.25rem',
-  120: '7.5rem',
+  125: '7.8125rem',
+  150: '9.375rem',
+  175: '10.94rem',
   200: '12.5rem',
+  250: '15.63rem',
+  275: '17.1875rem',
+  300: '18.75rem',
+  325: '20.3125rem',
+  350: '21.88rem',
+  375: '23.4375rem',
+  400: '25rem',
+  425: '26.5625rem',
+  450: '28.13rem',
+  475: '29.6875rem',
+  500: '31.25rem',
+  '1/2': '50%',
+  '1/3': '33.333333%',
+  '2/3': '66.666667%',
+  '1/4': '25%',
+  '2/4': '50%',
+  '3/4': '75%',
+  '1/5': '20%',
+  '2/5': '40%',
+  '3/5': '60%',
+  '4/5': '80%',
+  '1/6': '16.666667%',
+  '2/6': '33.333333%',
+  '3/6': '50%',
+  '4/6': '66.666667%',
+  '5/6': '83.333333%',
+  '1/12': '8.333333%',
+  '2/12': '16.666667%',
+  '3/12': '25%',
+  '4/12': '33.333333%',
+  '5/12': '41.666667%',
+  '6/12': '50%',
+  '7/12': '58.333333%',
+  '8/12': '66.666667%',
+  '9/12': '75%',
+  '10/12': '83.333333%',
+  '11/12': '91.666667%',
 };
 
 /*
@@ -109,11 +155,13 @@ const spacing = {
   |
   */
 
+// @todo Update with your theme's breakpoints.
 const screens = {
   none: 'none',
   xs: '375px',
-  sm: '414px',
+  sm: '541px',
   md: '768px',
+  'md-only': { min: '768px', max: '1024px' },
   lg: '1024px',
   xl: '1280px',
   xxl: '1440px',
@@ -122,8 +170,10 @@ const screens = {
 };
 
 module.exports = {
+  // If you want tailwind classes always prefixed (e.g. "tw-"), add that prefix here.
   prefix: '',
   important: false,
+  // Separator for media queries.
   separator: ':',
   theme: {
     /* Defined above. */
@@ -226,7 +276,6 @@ module.exports = {
       none: '0',
       sm: '0.1875rem', // 3px
       default: '0.3125rem', // 5px
-      topImage: '0.1875rem, 0.1875rem, 0, 0',
       full: '9999px',
     },
 
@@ -269,7 +318,6 @@ module.exports = {
 
     boxShadow: {
       default: '0px 1px 9px rgba(141, 141, 141, 0.35);',
-      featureBox: '0px 28px 36px #A2A3A5',
       none: 'none',
     },
 
@@ -284,7 +332,10 @@ module.exports = {
     |
     */
 
-    container: {},
+    container: {
+      center: true,
+      padding: '1.25rem',
+    },
 
     /*
     |-----------------------------------------------------------------------------
@@ -336,7 +387,8 @@ module.exports = {
     */
 
     flex: {
-      '1': '1 1 0%',
+      1: '1 1 0%',
+      2: '2 1 0%',
       auto: '1 1 auto',
       initial: '0 1 auto',
       none: 'none',
@@ -391,6 +443,16 @@ module.exports = {
     |
     */
 
+    /*
+    |
+    | @todo Update with your theme's fonts.
+    | Note you'll also want to upload font files to the fonts directory and 
+    | update _fonts.scss in @storybook/atoms/fonts.
+    |
+    | Google webfonts helper is a good tool for this:
+    | https://google-webfonts-helper.herokuapp.com/fonts
+    |
+    */
     fontFamily: {
       sans: ['Work Sans', 'sans-serif'],
       serif: ['Spectral', 'serif'],
@@ -423,11 +485,12 @@ module.exports = {
     |
     */
 
+    // @todo Update with font sizes for your theme.
     fontSize: {
       14: '0.875rem',
       16: '1rem',
       18: '1.125rem',
-      21: '1.3125rem',
+      20: '1.25rem',
       24: '1.5rem',
       28: '1.75rem',
       30: '1.875rem',
@@ -443,19 +506,18 @@ module.exports = {
     | Font weights                       https://tailwindcss.com/docs/font-weight
     |-----------------------------------------------------------------------------
     |
-    | Here is where you define your font weights. We've provided a list of
-    | common font weight names with their respective numeric scale values
-    | to get you started. It's unlikely that your project will require
-    | all of these, so we recommend removing those you don't need.
+    | Here is where you define your font weights. Feel free to define weights by
+    | 400: 400 or regular: 400 like we have below.
     |
     | Class name: .font-{weight}
     |
     */
 
+    // @todo update with font weights for your theme.
     fontWeight: {
       regular: 400,
       medium: 500,
-      semiBold: 600, // Spectral
+      semiBold: 600,
       bold: 800,
     },
 
@@ -531,7 +593,6 @@ module.exports = {
     |
     */
 
-    // @todo: Return to these values when starting to code designs.
     lineHeight: {
       none: '1',
       normal: '1.428',
@@ -585,17 +646,18 @@ module.exports = {
     |
     | Here is where you define your maximum height utility sizes. These can
     | be percentage based, pixels, rems, or any other units. We provide a
-    | couple common use-cases by default. You can, of course, modify
-    | these values as needed.
+    | couple common use-cases by default, plus the spacing we defined earlier.
+    | You can, of course, modify these values as needed.
     |
     | Class name: .max-h-{size}
     |
     */
 
-    maxHeight: {
+    maxHeight: theme => ({
       full: '100%',
       screen: '100vh',
-    },
+      ...theme('spacing'),
+    }),
 
     /*
     |-----------------------------------------------------------------------------
@@ -603,16 +665,19 @@ module.exports = {
     |-----------------------------------------------------------------------------
     |
     | Here is where you define your maximum width utility sizes. These can
-    | be percentage based, pixels, rems, or any other units. By default
-    | we provide a sensible rem based scale and a "full width" size,
-    | which is basically a reset utility. You can, of course,
-    | modify these values as needed.
+    | be percentage based, pixels, rems, or any other units. We provide some
+    | use cases be default, plus the spacing we defined earlier. You can, of
+    | course, modify these values as needed.
     |
     | Class name: .max-w-{size}
     |
     */
 
-    maxWidth: screens,
+    maxWidth: theme => ({
+      full: '100%',
+      screen: '100vh',
+      ...theme('spacing'),
+    }),
 
     /*
     |-----------------------------------------------------------------------------
@@ -621,18 +686,19 @@ module.exports = {
     |
     | Here is where you define your minimum height utility sizes. These can
     | be percentage based, pixels, rems, or any other units. We provide a
-    | few common use-cases by default. You can, of course, modify these
-    | values as needed.
+    | couple common use-cases by default, plus the spacing we defined earlier.
+    | You can, of course, modify these values as needed.
     |
     | Class name: .min-h-{size}
     |
     */
 
-    minHeight: {
+    minHeight: theme => ({
       0: '0',
       full: '100%',
       screen: '100vh',
-    },
+      ...theme('spacing'),
+    }),
 
     /*
     |-----------------------------------------------------------------------------
@@ -640,18 +706,19 @@ module.exports = {
     |-----------------------------------------------------------------------------
     |
     | Here is where you define your minimum width utility sizes. These can
-    | be percentage based, pixels, rems, or any other units. We provide a
-    | couple common use-cases by default. You can, of course, modify
-    | these values as needed.
+    | be percentage based, pixels, rems, or any other units. We provide some
+    | use cases be default, plus the spacing we defined earlier. You can, of
+    | course, modify these values as needed.
     |
     | Class name: .min-w-{size}
     |
     */
 
-    minWidth: {
+    minWidth: theme => ({
       0: '0',
       full: '100%',
-    },
+      ...theme('spacing'),
+    }),
 
     /*
     |-----------------------------------------------------------------------------
@@ -746,36 +813,36 @@ module.exports = {
     stroke: {
       current: 'currentColor',
     },
+
+    /*
+    |-----------------------------------------------------------------------------
+    | Text Color                         https://tailwindcss.com/docs/text-color/
+    |-----------------------------------------------------------------------------
+    |
+    | Text color uses the same theme colors defined above.
+    |
+    */
+
     textColor: theme => theme('colors'),
+
+    /*
+    |-----------------------------------------------------------------------------
+    | Width                                  https://tailwindcss.com/docs/width
+    |-----------------------------------------------------------------------------
+    |
+    | Here is where you define your width utility sizes. These can be
+    | percentage based, pixels, rems, or any other units. By default
+    | we provide a sensible rem based numeric scale plus some other
+    | common use-cases. You can, of course, modify these values as
+    | needed.
+    |
+    | Class name: .h-{size}
+    |
+    */
+
     width: theme => ({
       auto: 'auto',
       ...theme('spacing'),
-      '1/2': '50%',
-      '1/3': '33.333333%',
-      '2/3': '66.666667%',
-      '1/4': '25%',
-      '2/4': '50%',
-      '3/4': '75%',
-      '1/5': '20%',
-      '2/5': '40%',
-      '3/5': '60%',
-      '4/5': '80%',
-      '1/6': '16.666667%',
-      '2/6': '33.333333%',
-      '3/6': '50%',
-      '4/6': '66.666667%',
-      '5/6': '83.333333%',
-      '1/12': '8.333333%',
-      '2/12': '16.666667%',
-      '3/12': '25%',
-      '4/12': '33.333333%',
-      '5/12': '41.666667%',
-      '6/12': '50%',
-      '7/12': '58.333333%',
-      '8/12': '66.666667%',
-      '9/12': '75%',
-      '10/12': '83.333333%',
-      '11/12': '91.666667%',
       full: '100%',
       screen: '100vw',
     }),
@@ -913,5 +980,14 @@ module.exports = {
   |
   */
 
-  plugins: [],
+  /* eslint-disable global-require */
+  plugins: [
+    require('./tailwind_plugins/grid')({
+      grids: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      gaps: theme => ({
+        ...theme('spacing'),
+      }),
+    }),
+  ],
+  /* eslint-enable global-require */
 };
