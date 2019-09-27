@@ -12,7 +12,11 @@ import twigDrupal from 'twig-drupal-filters';
 twigDrupal(Twig);
 
 // Automatically import all files ending in *.stories.js.
-const components = require.context('../components', true, /\.stories\.(ts|js)$/);
+const components = require.context(
+  '../components',
+  true,
+  /\.stories\.(ts|js)$/
+);
 function loadStories() {
   components.keys().forEach(filename => components(filename));
 }
