@@ -26,18 +26,18 @@ View the full documentation at https://tailwindcss.com.
 | and backgroundColor utilities, so this configuration
 | would generate classes like .text-navy, .border-gray, and .bg-navy.
 |
-| You can declare a color outright (e.g. black: '#000'), or
-| you can declare multiple shade of a color
-    gray: {
-      default: '#e0e0e0',
-      light: '#f7f7f7',
-    }
+| You can declare a color outright (e.g. black: '#000'),
+| or you can declare multiple shade of a color
+|    gray: {
+|     default: '#e0e0e0',
+|      light: '#f7f7f7',
+|    }
 | In this case "default" is what will show if you just use the class
 | "text-gray". You don't need to put "text-gray-default".
 |
 */
 
-// @todo Update these colors based on your project.
+// @todo Update these colors based on your theme.
 const colors = {
   black: '#000',
   blue: {
@@ -251,6 +251,7 @@ module.exports = {
     |
     */
 
+    // @todo Update default border color based on your theme.
     borderColor: theme => ({
       ...theme('colors'),
       default: theme('colors.gray.light', 'currentColor'),
@@ -272,10 +273,11 @@ module.exports = {
     |
     */
 
+    // @todo Update border radius values based on your theme.
     borderRadius: {
       none: '0',
-      sm: '0.1875rem', // 3px
-      default: '0.3125rem', // 5px
+      3: '0.1875rem',
+      5: '0.3125rem',
       full: '9999px',
     },
 
@@ -292,12 +294,13 @@ module.exports = {
     |
     */
 
+    // @todo Update border widths based on your theme.
     borderWidth: {
-      default: '1px',
+      default: '0.0625rem', // 1px
       0: '0',
-      2: '2px',
-      4: '4px',
-      8: '8px',
+      2: '0.125rem',
+      4: '0.25rem',
+      8: '0.5rem',
     },
 
     /*
@@ -316,6 +319,7 @@ module.exports = {
     |
     */
 
+    // @todo Update box shadow based on your theme.
     boxShadow: {
       default: '0px 1px 9px rgba(141, 141, 141, 0.35);',
       none: 'none',
@@ -332,6 +336,7 @@ module.exports = {
     |
     */
 
+    // @todo Alter settings based on your theme.
     container: {
       center: true,
       padding: '1.25rem',
@@ -572,6 +577,7 @@ module.exports = {
     |
     */
 
+    // @todo Update values based on your theme.
     letterSpacing: {
       tighter: '-0.05em',
       tight: '-0.025em',
@@ -593,6 +599,7 @@ module.exports = {
     |
     */
 
+    // @todo Update values based on your theme.
     lineHeight: {
       none: '1',
       normal: '1.428',
@@ -810,6 +817,15 @@ module.exports = {
     */
 
     padding: theme => theme('spacing'),
+
+    /*
+    |-----------------------------------------------------------------------------
+    | Stroke                                 https://tailwindcss.com/docs/stroke/
+    |-----------------------------------------------------------------------------
+    |
+    | Change this value to set the stroke of an SVG.
+    |
+    */
     stroke: {
       current: 'currentColor',
     },
