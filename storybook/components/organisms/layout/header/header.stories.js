@@ -5,6 +5,8 @@ import '../../../../styles/index.scss';
 import Header from './header.twig';
 import { menu } from '../../../molecules/menu/menu.data';
 
-storiesOf('Organisms/Header', module).add('Header', () => Header({
-  headerNav: menu,
-}));
+storiesOf('Organisms/Header', module).add('Header', () =>
+  Header({
+    headerNav: menu,
+  })
+);

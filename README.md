@@ -12,6 +12,12 @@ To enable this theme for a D8 site, do the following:
 - Install and enable the Components module.
 - Export configuration for the theme and new module
 - Add the block of code below to the `.gitattributes` file **in the root of the project repository**
+- Replace the contents of `.eslintrc` to
+  ```
+  {
+    "extends": "./core/.eslintrc.json"
+  }
+  ```
 - Customize variables in `tailwind.config.js`
 - Customize storybook theme in `storybook/.storybook/customStorybookTheme.js`
 - Delete this section of the README
@@ -40,7 +46,8 @@ From the theme directory, `cd` into `storybook` and then run `npm install` to in
 The following npm scripts are available (see package.json for a complete list):
 
 - `storybook`: build assets for the component library and serve it locally, watching files for changes
-- `build-library`: build assets in the `build/` directory for use on the Drupal site
+- `build`: build assets in the `build/` directory for use on the Drupal site
+- `watch`: watch scss and js files during development
 
 ## Building components
 

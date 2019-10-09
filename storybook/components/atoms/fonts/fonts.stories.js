@@ -13,5 +13,5 @@ storiesOf('Atoms/Text', module).add(
   () => `
   <p style="font-family: Work Sans">${sansSerif}</p>
   <p style="font-family: Spectral">${serif}</p>
-  `,
+  `
 );

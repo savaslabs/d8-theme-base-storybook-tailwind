@@ -6,3 +6,5 @@ export const menu = {
     { label: 'Jobs', path: '#' },
   ],
 };
+
+export default menu;

@@ -34,7 +34,7 @@ const css = {
  * Default modules loader for JavaScript and TypeScript.
  */
 const javascript = {
-  test: /\.(ts|js)$/,
+  test: /\.(js)$/,
   exclude: /node_modules/,
   use: [
     {
@@ -47,7 +47,6 @@ const javascript = {
               targets: { chrome: '63', ie: '11' },
             },
           ],
-          ['@babel/typescript'],
         ],
         plugins: [
           [
