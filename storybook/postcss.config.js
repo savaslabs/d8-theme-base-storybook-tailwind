@@ -4,6 +4,7 @@ const postcssNormalize = require('postcss-normalize');
 const postcssPresetEnv = require('postcss-preset-env');
 const postcssEasyImport = require('postcss-easy-import');
 const postcssUrl = require('postcss-url');
+const purgecss = require('@fullhuman/postcss-purgecss');
 const tailwindcss = require('tailwindcss');
 
 module.exports = {
@@ -22,6 +23,15 @@ module.exports = {
     }),
     tailwindcss('./tailwind.config.js'),
     cssnano,
+    purgecss({
+      content: [
+        './components/**/*.twig',
+        '../templates/**/*.twig',
+        './components/**/*.scss',
+        './components/**/*.js',
+      ],
+      defaultExtractor: content => content.match(/[\w-\/:]+(?<!:)/g) || [],
+    }),
   ],
   module: true,
   url: false,
