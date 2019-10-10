@@ -157,16 +157,12 @@ const spacing = {
 
 // @todo Update with your theme's breakpoints.
 const screens = {
-  none: 'none',
-  xs: '375px',
-  sm: '541px',
+  'sm-only': { max: '767px' },
   md: '768px',
-  'md-only': { min: '768px', max: '1024px' },
+  'md-only': { min: '768px', max: '1023px' },
   lg: '1024px',
   xl: '1280px',
   xxl: '1440px',
-  full: '100%',
-  screen: '100vw',
 };
 
 module.exports = {
