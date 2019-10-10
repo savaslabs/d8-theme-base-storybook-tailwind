@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 // Import dependencies.
 const StyleLintPlugin = require('stylelint-webpack-plugin');
@@ -77,6 +78,11 @@ const assets = {
  * A webpack plugin to lint your CSS/Sass code using stylelint.
  */
 const plugins = [
+  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.NoEmitOnErrorsPlugin(),
+  new webpack.optimize.LimitChunkCountPlugin({
+    maxChunks: 1,
+  }),
   new FixStyleOnlyEntriesPlugin(),
   new StyleLintPlugin({
     configFile: path.resolve(__dirname, '.stylelintrc'),
