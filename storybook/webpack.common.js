@@ -28,7 +28,7 @@ const postcssLoader = {
  */
 const css = {
   test: /\.(scss|css)$/,
-  use: ['css-loader', postcssLoader, sassLoader],
+  use: ['cache-loader', 'css-loader', postcssLoader, sassLoader],
 };
 
 /**
@@ -36,8 +36,9 @@ const css = {
  */
 const javascript = {
   test: /\.(js)$/,
-  exclude: /node_modules/,
+  exclude: '/node_modules/',
   use: [
+    'cache-loader',
     {
       loader: 'babel-loader',
       options: {
@@ -68,7 +69,7 @@ const javascript = {
  */
 const assets = {
   test: /\.(woff|woff2|eot|ttf|svg|ico|jpe?g|png)$/,
-  use: ['file-loader'],
+  use: ['cache-loader', 'file-loader'],
 };
 
 /**
