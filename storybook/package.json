@@ -20,7 +20,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,scss}": [
+    "docroot/themes/custom/d8-theme-base-storybook-tailwind/storybook/build/.{js,json,scss}": [
       "prettier --write",
       "git add"
     ]

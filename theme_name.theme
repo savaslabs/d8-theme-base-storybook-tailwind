@@ -1,0 +1,11 @@
+<?php
+
+function theme_name_preprocess_page(&$variables) {
+  $environment = getenv('APP_ROOT');
+
+  if ($environment === '/var/www/html') {
+    $variables['#attached']['library'][] = 'theme_name/global-dev';
+  } else {
+    $variables['#attached']['library'][] = 'theme_name/global-styling';
+  }
+}

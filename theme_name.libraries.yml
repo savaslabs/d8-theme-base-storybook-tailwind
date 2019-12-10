@@ -5,3 +5,10 @@ global-styling:
   css:
     component:
       build/index.css: { preprocess: true }
+
+global-dev:
+  js:
+    dev-build/scripts.js: { preprocess: true }
+  css:
+    component:
+      dev-build/index.css: { preprocess: true }

@@ -18,5 +18,3 @@ component-libraries:
     paths:
       - ./storybook/components
 
-libraries:
-  - theme_name/global-styling
