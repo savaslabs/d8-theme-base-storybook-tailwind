@@ -20,7 +20,7 @@ module.exports = (env, argv) => {
       filename: '[name].js',
       path: isProduction
         ? path.resolve(__dirname, '../build')
-        : path.resolve(__dirname, '../build'),
+        : path.resolve(__dirname, '../dev-build'),
     },
     resolve: { extensions: ['.js'] },
     module: {
@@ -28,9 +28,13 @@ module.exports = (env, argv) => {
         // JavaScript
         {
           test: /\.(js)$/,
-          exclude: '/node_modules/',
+          include: [
+            path.resolve(__dirname, 'components'),
+            path.resolve(__dirname, 'scripts'),
+            path.resolve(__dirname, 'plugins'),
+            path.resolve(__dirname, 'tailwind_plugins'),
+          ],
           use: [
-            'cache-loader',
             {
               loader: 'babel-loader',
               options: {
@@ -58,9 +62,12 @@ module.exports = (env, argv) => {
         // CSS
         {
           test: /\.(scss|css)$/,
+          include: [
+            path.resolve(__dirname, 'components'),
+            path.resolve(__dirname, 'styles'),
+          ],
           use: [
-            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-            'cache-loader',
+            MiniCssExtractPlugin.loader,
             'css-loader',
             {
               loader: 'postcss-loader',
@@ -80,7 +87,7 @@ module.exports = (env, argv) => {
         // Assets
         {
           test: /\.(woff|woff2|eot|ttf|svg|ico|jpe?g|png)$/,
-          use: ['cache-loader', 'file-loader'],
+          use: 'file-loader',
         },
       ],
     },
@@ -95,7 +102,7 @@ module.exports = (env, argv) => {
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'index.css',
-        path: path.resolve(__dirname, '../build'),
+        path: isProduction ? path.resolve(__dirname, '../build') : path.resolve(__dirname, '../dev-build'),
       }),
       new webpack.NoEmitOnErrorsPlugin(),
       new webpack.optimize.OccurrenceOrderPlugin(),

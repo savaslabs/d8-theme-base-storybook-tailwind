@@ -556,10 +556,12 @@ module.exports = {
     |
     */
 
-    inset: {
+    inset: (theme, { negative }) => ({
       0: '0',
       auto: 'auto',
-    },
+      ...theme('spacing'),
+      ...negative(theme('spacing')),
+    }),
 
     /*
     |-----------------------------------------------------------------------------
@@ -640,6 +642,7 @@ module.exports = {
       auto: 'auto',
       ...theme('spacing'),
       ...negative(theme('spacing')),
+      full: 'calc(50% - 50vw)',
     }),
 
     /*
