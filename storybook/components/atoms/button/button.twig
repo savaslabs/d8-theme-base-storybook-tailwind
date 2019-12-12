@@ -1,1 +1,10 @@
-<a class="button" href="{{ url }}">{{ text }}</a>
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+  ]
+%}
+
+<div{{attributes.addClass(classes)}}>
+	<a class="button" href="{{ button.url }}">{{ button.text }}</a>
+</div>
